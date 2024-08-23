@@ -7,6 +7,7 @@ int** crearMatriz(int m, int n) {
     for (int i = 0; i < m; ++i) {
         matriz[i] = new int[n];
     }
+    qDebug("Se crea .....................");
     return matriz;
 }
 

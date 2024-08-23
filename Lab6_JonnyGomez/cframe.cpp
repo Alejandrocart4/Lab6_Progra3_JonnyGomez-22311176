@@ -3,6 +3,7 @@
 #include "operaciones.h"
 #include "QMessageBox"
 
+
 cframe::cframe(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::cframe)
@@ -13,6 +14,8 @@ cframe::cframe(QWidget *parent)
 cframe::~cframe()
 {
     delete ui;
+    liberarMatriz(matriz1, m1);
+    liberarMatriz(matriz2, m2);
 }
 
 
@@ -151,11 +154,37 @@ void cframe::on_buttonMostrarMatrices_clicked()
     m2 = ui->spinBoxFilas2->value();
     n2 = ui->spinBoxColumnas2->value();
 
+    qDebug() << "Dimensiones de la matriz 1:" << m1 << "x" << n1;
+    qDebug() << "Dimensiones de la matriz 2:" << m2 << "x" << n2;
+
     matriz1 = crearMatriz(m1, n1);
     matriz2 = crearMatriz(m2, n2);
 
+    if (!matriz1 || !matriz2) {
+        qDebug() << "Error al crear las matrices";
+        return;
+    }
+
     extraerValores(tableWidgetMatriz1, matriz1, m1, n1);
     extraerValores(tableWidgetMatriz2, matriz2, m2, n2);
+
+    qDebug() << "Valores de la matriz 1:";
+    for (int i = 0; i < m1; ++i) {
+        for (int j = 0; j < n1; ++j) {
+            qDebug() << matriz1[i][j];
+        }
+    }
+
+    qDebug() << "Valores de la matriz 2:";
+    for (int i = 0; i < m2; ++i) {
+        for (int j = 0; j < n2; ++j) {
+            qDebug() << matriz2[i][j];
+        }
+    }
+
+    // Mostrar las matrices en los QTableWidget
+    mostrarMatriz(tableWidgetMatriz1, matriz1, m1, n1);
+    mostrarMatriz(tableWidgetMatriz2, matriz2, m2, n2);
 
     QMessageBox::information(this, "Matrices Ingresadas", "Las matrices han sido ingresadas correctamente.");
 }
