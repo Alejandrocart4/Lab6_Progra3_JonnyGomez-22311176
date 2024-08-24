@@ -29,18 +29,45 @@ private slots:
 
     void on_buttonMostrarMatrices_clicked();
 
+    void on_buttonSumar_clicked();
+
+    void on_buttonRestar_clicked();
+
+    void on_buttonMultiplicar_clicked();
+
+    void on_btnHacerMatrizTrans_clicked();
+
+    void on_btnTransponer_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
 private:
     Ui::cframe *ui;
     int **matriz;
     int fil_col;
     int fil;
     int col;
-    int m1, n1, m2, n2;
-    int **matriz1;
-    int **matriz2;
-    QTableWidget *tableWidgetMatriz1;
-    QTableWidget *tableWidgetMatriz2;
-    QTableWidget *tableWidgetResultado;
+    int fil1, col1;
+    int fil2, col2;
+    int** matriz1;
+    int** matriz2;
+    int** matriz3;
 
 };
 #endif // CFRAME_H

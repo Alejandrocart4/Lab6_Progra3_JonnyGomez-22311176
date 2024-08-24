@@ -10,12 +10,10 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    cframe.cpp \
-    operaciones.cpp
+    cframe.cpp
 
 HEADERS += \
-    cframe.h \
-    operaciones.h
+    cframe.h
 
 FORMS += \
     cframe.ui
